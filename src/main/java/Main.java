@@ -45,9 +45,15 @@ public class Main {
         for (String x : splittedTree ){
             System.out.println(x);
         }
+        System.out.println(" --------------------------------------------------------- ");
         ParseTreeWalker walker = new ParseTreeWalker();
         CSharpParserBaseListener listener = new CSharpParserBaseListener();
         walker.walk(listener, tree);
+        treeString = tree.getText();
+        splittedTree = treeString.split(";");
+        for (String x : splittedTree ){
+            System.out.println(x);
+        }
 
 
 //        assertThat(listener.getErrors().size(), is(1));
