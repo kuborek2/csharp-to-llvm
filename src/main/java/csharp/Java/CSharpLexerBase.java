@@ -4,7 +4,7 @@ import csharp.CSharpLexer;
 import org.antlr.v4.runtime.*;
 import java.util.Stack;
 
-abstract class CSharpLexerBase extends Lexer
+public abstract class CSharpLexerBase extends Lexer
 {
     protected CSharpLexerBase(CharStream input)
     {

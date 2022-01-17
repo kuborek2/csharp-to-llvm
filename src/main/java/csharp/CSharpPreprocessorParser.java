@@ -1,5 +1,6 @@
 // Generated from D:/Projekty/JetBrains_InteIIj/maven-csharp-to-llvm/src/main/java/csharp\CSharpPreprocessorParser.g4 by ANTLR 4.9.2
 package csharp;
+import csharp.Java.CSharpPreprocessorParserBase;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
