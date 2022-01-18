@@ -40,25 +40,44 @@ public class Main {
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         CSharpParser parser = new CSharpParser(tokens);
         ParseTree tree = parser.compilation_unit();
-        String treeString = tree.getText();
-        String[] splittedTree = treeString.split(";");
+
+        String beforeVisit = tree.getText();
+        String[] splittedTree = beforeVisit.split(";");
         for (String x : splittedTree ){
             System.out.println(x);
         }
         System.out.println(" --------------------------------------------------------- ");
-        ParseTreeWalker walker = new ParseTreeWalker();
-        CSharpParserBaseListener listener = new CSharpParserBaseListener();
-        walker.walk(listener, tree);
-        treeString = tree.getText();
-        splittedTree = treeString.split(";");
+
+        var result = new StringBuilder();
+        var visitor = new CSharpCodeGenVisitor(result);
+        visitor.visit(tree);
+        String stringAfterVisit = result.toString();
+
+
+        splittedTree = stringAfterVisit.split(";");
         for (String x : splittedTree ){
             System.out.println(x);
         }
+        System.out.println(" --------------------------------------------------------- ");
+//        int x = 15;
+//        System.out.println(x);
+//        ParseTreeWalker walker = new ParseTreeWalker();
+//        CSharpParserBaseListener listener = new CSharpParserBaseListener();
+//        walker.walk(listener, tree);
 
 
 //        assertThat(listener.getErrors().size(), is(1));
 //        assertThat(listener.getErrors().get(0),
 //                is("Method DoSomething is uppercased!"));
+
+//        var pythonLexer = new PythonLexer(CharStreams.fromString(source));
+//        var commonTokenStream = new CommonTokenStream(pythonLexer);
+//        var pythonParser = new PythonParser(commonTokenStream);
+//
+//        var fileContext = pythonParser.file_input();
+//        var result = new StringBuilder();
+//        var visitor = new PythonCodeGeneratingVisitor(result);
+//        visitor.visit(fileContext);
 
 
     }
