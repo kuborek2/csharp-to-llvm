@@ -1,5 +1,6 @@
 // Generated from D:/Projekty/JetBrains_InteIIj/maven-csharp-to-llvm/src/main/java/csharp\CSharpLexer.g4 by ANTLR 4.9.2
 package csharp;
+import csharp.Java.CSharpLexerBase;
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Token;
