@@ -4,7 +4,7 @@ import csharp.CSharpParserBaseVisitor;
 public class CSharpTypeInferenceVisitor extends CSharpParserBaseVisitor {
 
     public boolean checkType(String text) {
-        return isString(text) || isInteger(text) || isDouble(text) || isBoolean(text);
+        return isString(text) || isInteger(text) || isDouble(text) || isBoolean(text) ;
     }
 
     public String inferType(String text) {
@@ -34,6 +34,9 @@ public class CSharpTypeInferenceVisitor extends CSharpParserBaseVisitor {
             case "double":
                 return "dobule";
 
+            case "float":
+                return "dobule";
+
             case "Boolean":
                 return "i1";
 
@@ -42,8 +45,20 @@ public class CSharpTypeInferenceVisitor extends CSharpParserBaseVisitor {
         }
     }
 
+    public String litteralOperator(String text){
+        if(text.contains("=="))
+            return "eq";
+        else if( text.contains("<") )
+            return "nsw";
+        else
+            return "nieznazny operator";
+    }
+
     private boolean isString(String text) {
-        return text.startsWith("\"") && text.endsWith("\"");
+        if( text.getClass().equals(String.class)  ){
+            return true;
+        }
+        return false;
     }
 
     private boolean isInteger(String text) {
